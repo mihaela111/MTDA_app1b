@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTDA_app1b", "MTDA_app1b.csproj", "{38153387-2C11-48D4-9154-9F8E2C2293CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{38153387-2C11-48D4-9154-9F8E2C2293CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38153387-2C11-48D4-9154-9F8E2C2293CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38153387-2C11-48D4-9154-9F8E2C2293CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38153387-2C11-48D4-9154-9F8E2C2293CD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {729E7DD4-9F14-4711-A909-077CF13E101D}
+	EndGlobalSection
+EndGlobal
