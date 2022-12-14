@@ -1,0 +1,82 @@
+--create db
+
+use master
+go
+create database [BPersonal]
+on
+primary
+(name=bd_pers_1,
+filename="D:\BDA\bdpers.mdf",
+size=2mb,
+maxsize=unlimited,
+filegrowth=10%),
+(name=bd_pers_2,
+filename="D:\BDA\bdpers.ndf",
+size=1mb,
+maxsize=unlimited,
+filegrowth=1mb)
+log on
+(name=bd_pers_3,
+filename="D:\BDA\bdpers.ldf",
+size=2mb,
+maxsize=50mb,
+filegrowth=1mb);
+go
+
+
+
+
+
+--create tables
+use [BPersonal]
+go
+create table Salariati
+(Marca int not null primary key check (marca>=100),
+Nume varchar(20) not null,
+Prenume varchar(20) not null,
+Sex char(1) null check(sex in ('M','F')) default 'M',
+Salariu int not null check (Salariu>1250),
+Profesia varchar(10) null,
+DataAngajarii smalldatetime not null,
+DataNasterii smalldatetime not null,
+AreCopii bit null default 0,
+NrCopii tinyint null default 0);
+
+create table Retineri
+(Marca int not null check (marca>=100),
+TipRetinere varchar(10) not null,
+Suma int null,
+primary key (Marca, TipRetinere),
+foreign key (Marca) references Salariati);
+
+create table Copii
+(Marca int not null check (marca>=100),
+IdCopil int not null,
+NumeCopil varchar(20),
+DataNasterii smalldatetime,
+primary key (Marca, IdCopil),
+foreign key (Marca) references Salariati);
+
+
+
+--insert data
+insert into Salariati values (100,'Popescu','Dan','M',1500,'Strungar','2005-07-23','1980-08-21',0,0)
+insert into Salariati values (110,'Ionescu','Maria','F',2000,'Ajustor','2008-06-03','1979-09-06',1,1)
+insert into Salariati values (120,'Popa','Danut','M',1800,'Strungar','2013-07-13','1987-10-03',0,0)
+insert into Salariati values (130,'Danciu','Ionel','M',1800,'Vopsitor','2005-02-03','1971-02-06',1,3)
+insert into Salariati values (140,'Vlad','Alina','F',2300,'Vopsitor','2005-07-23','1969-08-16',1,2)
+insert into Salariati values (150,'Mirel','Cornel','M',1600,'Strungar','2014-09-20','1980-04-06',0,0)
+
+insert into Retineri values (100, 'RataCasa',540)
+insert into Retineri values (100, 'Proprire',120)
+insert into Retineri values (130, 'RataMasina',340)
+insert into Retineri values (140, 'RataCasa',480)
+insert into Retineri values (140, 'PensAlim',260)
+insert into Retineri values (140, 'Proprire',50)
+
+insert into Copii values (110,1,'Danut','2004-07-09')
+insert into Copii values (130,1,'Mirel','2002-10-19')
+insert into Copii values (130,2,'Alina','2000-06-05')
+insert into Copii values (130,3,'Cornel','2001-04-04')
+insert into Copii values (140,1,'Danut','2006-09-09')
+insert into Copii values (140,2,'Maria','2007-10-23')
